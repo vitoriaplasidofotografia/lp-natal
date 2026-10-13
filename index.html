@@ -207,7 +207,7 @@ footer .copy{font-size:13px;color:var(--soft);margin-top:30px;opacity:.8}
 .bauble.b3{width:16px;height:16px;top:42%;right:-26px;animation-delay:-4s;animation-duration:5s}
 @keyframes float{0%,100%{transform:translateY(0) rotate(-4deg)}50%{transform:translateY(-14px) rotate(4deg)}}
 .badge-live{position:absolute;left:-22px;bottom:40px;background:var(--paper);border:1px solid var(--line);border-radius:999px;padding:10px 18px 10px 14px;display:flex;align-items:center;gap:10px;font-size:13px;color:var(--ink);box-shadow:0 10px 30px rgba(51,64,47,.12);animation:float 7s -1s ease-in-out infinite}
-.badge-live i{width:9px;height:9px;border-radius:50%;background:#5E7262;box-shadow:0 0 0 0 rgba(94,114,98,.5);animation:ping 2s infinite}
+.badge-live i{width:9px;height:9px;border-radius:50%;background:#C42A2F;box-shadow:0 0 0 0 rgba(196,42,47,.5);animation:ping 2s infinite}
 @keyframes ping{0%{box-shadow:0 0 0 0 rgba(196,42,47,.5)}80%,100%{box-shadow:0 0 0 12px rgba(196,42,47,0)}}
 @media (max-width:860px){.badge-live{left:8px}.bauble.b1{right:6px}.bauble.b2{left:6px}.bauble.b3{right:8px}}
 
@@ -287,16 +287,12 @@ footer .copy{font-size:13px;color:var(--soft);margin-top:30px;opacity:.8}
 .more-text .btn{margin-top:26px;border:0;cursor:pointer;font-family:var(--sans)}
 @media (max-width:760px){.more-box{grid-template-columns:1fr;text-align:center}.more-text p{margin-inline:auto}.more-thumbs{max-width:360px;width:100%;margin:0 auto}}
 
-/* valores ocultos: pacotes apresentados no Grupo VIP */
-.price,.pk-items{filter:blur(7px);user-select:none;-webkit-user-select:none}
-.vip-note{max-width:620px;margin:0 auto 42px;padding:26px clamp(18px,4vw,36px);border:1px solid var(--line);border-radius:6px;background:var(--paper);text-align:center;display:grid;justify-items:center;gap:16px}
-.vip-note p{font-family:var(--serif);font-style:italic;font-size:21px;line-height:1.4;color:var(--ink)}
-.vip-note p b{font-style:normal;font-family:var(--sans);font-weight:500;letter-spacing:.08em;color:var(--gold)}
-.vip-list{list-style:none;padding:0;margin:0;display:grid;gap:10px;font-family:var(--serif);font-size:19px;line-height:1.4;color:var(--ink);text-align:left}
-.vip-list li::before{content:"✦";color:var(--gold);margin-right:10px;font-size:11px}
-.vip-list b{font-weight:600;color:var(--ink)}
-.grupo-cta{margin-top:26px}
-.grupo-cta .btn{display:inline-block}
+/* botões de reserva: brilho e destaque */
+.btn.wa{position:relative;overflow:hidden;animation:waGlow 2.8s ease-in-out infinite}
+.btn.wa::after{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent 35%,rgba(255,240,205,.38) 50%,transparent 65%);transform:translateX(-120%);animation:shine 3.6s 1s ease-in-out infinite;pointer-events:none}
+.btn.wa:hover{transform:translateY(-2px)}
+@keyframes waGlow{0%,100%{box-shadow:0 0 0 0 rgba(176,138,79,.45)}50%{box-shadow:0 0 0 12px rgba(176,138,79,0)}}
+@media (prefers-reduced-motion:reduce){.btn.wa,.btn.wa::after{animation:none!important}}
 
 /* galeria em tela cheia */
 .gal{position:fixed;inset:0;z-index:50;background:var(--cream);overflow-y:auto;overscroll-behavior:contain;padding:calc(env(safe-area-inset-top,0px) + 0px) 0 calc(env(safe-area-inset-bottom,0px) + 24px);animation:galin .45s cubic-bezier(.2,.7,.2,1)}
@@ -502,7 +498,7 @@ main{position:relative}
         <p class="sub">Os presentes mais especiais são aqueles que o tempo transforma em memórias.</p>
         <p class="lead">Uma experiência de Natal que celebra a infância, a família e o verdadeiro significado dessa história de amor.</p>
         <div class="actions">
-          <a class="btn wa" href="https://chat.whatsapp.com/DgpMbaPRsQ2FkxfL30hxgE">Quero entrar no Grupo VIP</a>
+          <a class="btn wa" data-msg="Olá, Vitória! Conheci a campanha de Natal 2026 e gostaria de saber mais sobre as sessões e as datas disponíveis." href="https://wa.me/555196505837">Quero reservar minha sessão</a>
         </div>
         <p class="meta">Campanha de Natal 2026 · Campo Bom/RS</p>
       </div>
@@ -511,7 +507,7 @@ main{position:relative}
         <span class="bauble b1" aria-hidden="true"></span>
         <span class="bauble b2" aria-hidden="true"></span>
         <span class="bauble b3" aria-hidden="true"></span>
-        <div class="badge-live"><i></i>Grupo VIP do WhatsApp aberto</div>
+        <div class="badge-live"><i></i>Agenda de Natal aberta</div>
       </div>
     </div>
   </section>
@@ -551,7 +547,6 @@ main{position:relative}
           <p class="first">Sou Vitória, mãe do Levi, e foi registrando os momentos da minha família que descobri o valor de guardar os pequenos detalhes da vida.</p>
           <p class="faith">Minha fé cristã, o amor pela minha família e meu olhar delicado para a infância inspiram a forma como enxergo a fotografia.</p>
           <p>Com o incentivo de amigos e familiares, decidi transformar essa paixão em algo maior. Assim nasceu minha campanha de Natal: um projeto feito com carinho, que une minha história, meus valores e o desejo de criar memórias especiais para outras famílias.</p>
-          <div class="grupo-cta" style=""><a class="btn wa" href="https://chat.whatsapp.com/DgpMbaPRsQ2FkxfL30hxgE" target="_blank" rel="noopener">Quero entrar no Grupo VIP</a></div>
         </div>
       </div>
     </div>
@@ -631,8 +626,7 @@ main{position:relative}
           </div>
         </div>
       </div>
-      <p class="scene-note">No grupo, você me conta qual cenário combina mais com a sua família.</p>
-      <div class="grupo-cta" style="margin-top:30px;display:flex;justify-content:center"><a class="btn wa" href="https://chat.whatsapp.com/DgpMbaPRsQ2FkxfL30hxgE" target="_blank" rel="noopener">Quero entrar no Grupo VIP</a></div>
+      <p class="scene-note">Na reserva, é só me contar qual cenário combina mais com a sua família.</p>
     </div>
   </section>
 
@@ -672,10 +666,10 @@ main{position:relative}
   <section id="informacoes">
     <div class="wrap">
       <div class="sec-head">
-        <div class="eyebrow">Para a sua família</div>
+        <div class="eyebrow">Antes de reservar</div>
         <h2 class="script">Informações</h2>
       </div>
-      <ul class="infos"><li class="inf"><span class="inf-ic"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="16" cy="11" r="5"/><path d="M7 27c1-6 5-9 9-9s8 3 9 9"/><path d="M24 5l1 2 2 1-2 1-1 2-1-2-2-1 2-1z"/></svg></span><div><h3>Preparação</h3><p>Orientamos que a família venha <b>pronta para o ensaio</b>.</p></div></li><li class="inf"><span class="inf-ic"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 25c4-1 6-4 7-9M16 16l7-9 2 2-9 7"/><circle cx="9" cy="10" r="3"/></svg></span><div><h3>Make e cabelo</h3><p><b>Não trabalhamos</b> com make e cabelo.</p></div></li><li class="inf"><span class="inf-ic"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="9" width="22" height="16" rx="2"/><path d="M5 12l11 7 11-7"/></svg></span><div><h3>Entrega</h3><p>Fotos digitais em <b>até 5 dias</b> e fotos impressas em <b>até 10 dias</b>.</p></div></li></ul>
+      <ul class="infos"><li class="inf"><span class="inf-ic"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 10h20v16H6z"/><path d="M6 14h20M11 6v6M21 6v6"/><path d="M12 20l3 3 5-6"/></svg></span><div><h3>Reserva</h3><p>Para reservar sua sessão, solicitamos um sinal de <b>30% do valor</b> do pacote escolhido.</p></div></li><li class="inf"><span class="inf-ic"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 10h20v16H6z"/><path d="M6 14h20M11 6v6M21 6v6"/><path d="M20 19.5a4.2 4.2 0 1 1-1.3-3"/><path d="M19.2 14.8v2h-2"/></svg></span><div><h3>Reagendamento</h3><p>Pedidos de reagendamento devem ser feitos com <b>antecedência mínima de 48 horas</b>, sujeitos à disponibilidade de agenda.</p></div></li><li class="inf"><span class="inf-ic"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="16" cy="11" r="5"/><path d="M7 27c1-6 5-9 9-9s8 3 9 9"/><path d="M24 5l1 2 2 1-2 1-1 2-1-2-2-1 2-1z"/></svg></span><div><h3>Preparação</h3><p>Orientamos que a família venha <b>pronta para o ensaio</b>.</p></div></li><li class="inf"><span class="inf-ic"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 25c4-1 6-4 7-9M16 16l7-9 2 2-9 7"/><circle cx="9" cy="10" r="3"/></svg></span><div><h3>Make e cabelo</h3><p><b>Não trabalhamos</b> com make e cabelo.</p></div></li><li class="inf"><span class="inf-ic"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="9" width="22" height="16" rx="2"/><path d="M5 12l11 7 11-7"/></svg></span><div><h3>Entrega</h3><p>Fotos digitais em <b>até 5 dias</b> e fotos impressas em <b>até 10 dias</b>.</p></div></li></ul>
     </div>
   </section>
 
@@ -689,31 +683,20 @@ main{position:relative}
         <p>Cada família tem uma maneira especial de preservar suas memórias. Por isso, preparei três opções para você escolher aquela que combina com o que deseja guardar deste Natal.</p>
         <p>Seja em uma seleção delicada de fotografias digitais ou em uma experiência com registros impressos para folhear e guardar, o mais importante é levar consigo uma lembrança dessa fase da vida.</p>
       </div>
-      <div class="vip-note">
-        <div class="eyebrow">Antes de ver os valores</div>
-        <p>Os valores e as condições de cada pacote serão apresentados com exclusividade no <b>Grupo VIP</b>.</p>
-        <ul class="vip-list">
-          <li><b>Novidades em primeira mão</b>: a proposta do ensaio e os detalhes da campanha antes da divulgação geral</li>
-          <li><b>Prioridade na escolha dos horários</b>: receba a agenda antes da abertura geral e escolha entre os horários ainda disponíveis</li>
-          <li><b>Bastidores da campanha</b>: conheça o cenário e como a experiência foi preparada para as crianças e suas famílias</li>
-          <li><b>Tire suas dúvidas antes de reservar</b>: entenda os pacotes, o que está incluído e as condições, com mais tranquilidade</li>
-        </ul>
-        <a class="btn wa" href="https://chat.whatsapp.com/DgpMbaPRsQ2FkxfL30hxgE">Quero entrar no Grupo VIP</a>
-      </div>
       <div class="cards">
         <article class="card">
           <div class="opt">Pacote 01</div><h3 class="pk-name">Laço</h3>
           <p class="pk-desc">Para celebrar os vínculos e guardar os pequenos momentos da infância.</p>
           <div class="price"><small>R$</small>99,90</div>
           <ul class="pk-items"><li>6 fotografias digitais</li><li>Galeria online para escolher em casa</li></ul>
-          <a class="btn wa" href="https://chat.whatsapp.com/DgpMbaPRsQ2FkxfL30hxgE">Quero entrar no Grupo VIP</a>
+          <a class="btn wa" data-msg="Olá, Vitória! Vi o site e quero reservar o pacote Laço da campanha Uma história de Natal. 🎄" href="https://wa.me/555196505837">Reservar este pacote</a>
         </article>
         <article class="card">
           <div class="opt">Pacote 02</div><h3 class="pk-name">Presente</h3>
           <p class="pk-desc">Porque a presença de quem amamos é um dos presentes mais preciosos da vida.</p>
           <div class="price"><small>R$</small>134,90</div>
           <ul class="pk-items"><li>10 fotografias digitais</li><li>5 fotos impressas (15x21)</li><li>1 ímã de geladeira (estilo polaroid)</li><li>Galeria online para escolher em casa</li></ul>
-          <a class="btn wa" href="https://chat.whatsapp.com/DgpMbaPRsQ2FkxfL30hxgE">Quero entrar no Grupo VIP</a>
+          <a class="btn wa" data-msg="Olá, Vitória! Vi o site e quero reservar o pacote Presente da campanha Uma história de Natal. 🎄" href="https://wa.me/555196505837">Reservar este pacote</a>
         </article>
         <article class="card dest">
           <span class="ribbon">Mais completo</span>
@@ -721,7 +704,7 @@ main{position:relative}
           <p class="pk-desc">Para representar a gratidão pela família, pela fé e pelas memórias que ficam.</p>
           <div class="price"><small>R$</small>219,90</div>
           <ul class="pk-items"><li>15 fotografias digitais</li><li>10 fotos impressas (15x21)</li><li>1 bolinha de Natal com foto</li><li>1 ímã de geladeira (estilo polaroid)</li><li>Galeria online para escolher em casa</li></ul>
-          <a class="btn wa" href="https://chat.whatsapp.com/DgpMbaPRsQ2FkxfL30hxgE">Quero entrar no Grupo VIP</a>
+          <a class="btn wa" data-msg="Olá, Vitória! Vi o site e quero reservar o pacote Bênção da campanha Uma história de Natal. 🎄" href="https://wa.me/555196505837">Reservar este pacote</a>
         </article>
       </div>
     </div>
@@ -730,12 +713,12 @@ main{position:relative}
   <!-- 8. reservar -->
   <section id="reservar">
     <div class="wrap book">
-      <div class="eyebrow">Como entrar no grupo</div>
-      <h2 class="script">Vamos viver essa história juntos?</h2>
-      <p class="first">Os valores, as condições e as datas da campanha são apresentados no Grupo VIP.</p>
-      <p>Lá você acompanha cada detalhe, recebe as novidades primeiro e pode tirar suas dúvidas diretamente comigo.</p>
-      <p>Quero que sua família chegue ao ensaio sabendo como tudo vai funcionar, para aproveitar esse momento com tranquilidade e carinho.</p>
-      <a class="btn wa" href="https://chat.whatsapp.com/DgpMbaPRsQ2FkxfL30hxgE">Quero entrar no Grupo VIP</a>
+      <div class="eyebrow">Como reservar sua sessão</div>
+      <h2 class="script">Vamos reservar esse momento?</h2>
+      <p class="first">Para reservar sua sessão de Natal, basta me chamar pelo WhatsApp.</p>
+      <p>Vamos conversar sobre o pacote desejado, consultar as datas disponíveis e esclarecer suas dúvidas. Depois, envio as orientações para confirmar a reserva e preparar sua família para essa experiência.</p>
+      <p>Quero que você chegue ao ensaio sabendo como tudo vai funcionar, para aproveitar esse momento com tranquilidade e carinho.</p>
+      <a class="btn wa" data-msg="Olá, Vitória! Quero reservar minha sessão de Natal 2026. 🎄" href="https://wa.me/555196505837">Quero reservar minha sessão de Natal</a>
     </div>
   </section>
 
@@ -744,13 +727,16 @@ main{position:relative}
     <div class="wrap">
       <div class="sec-head">
         <div class="eyebrow">Perguntas frequentes</div>
-        <h2 class="script">Dúvidas frequentes</h2>
+        <h2 class="script">Antes de reservar</h2>
       </div>
       <div class="faq-list">
         <details><summary>Onde acontece a campanha de Natal?</summary><p>A sessão acontece no home estúdio da Vitória Plasido Fotografia, em Campo Bom/RS. As informações de localização são compartilhadas durante o atendimento.</p></details>
         <details><summary>O que torna essa campanha especial?</summary><p>A sessão é uma experiência inspirada no nascimento de Jesus. A criança conhece essa história por meio de um livrinho ilustrado e vive o Natal no cenário, enquanto eu registro expressões e momentos espontâneos, sem precisar ficar posando.</p></details>
+        <details><summary>Quais são os pacotes disponíveis?</summary><p><b>Laço</b> (R$ 99,90): 6 fotografias digitais. <b>Presente</b> (R$ 134,90): 10 fotografias digitais, 5 fotos impressas (15x21) e 1 ímã de geladeira estilo polaroid. <b>Bênção</b> (R$ 219,90): 15 fotografias digitais, 10 fotos impressas (15x21), 1 bolinha de Natal com foto e 1 ímã de geladeira estilo polaroid. Todos incluem a galeria online para escolher em casa.</p></details>
         <details><summary>Como funciona a escolha das fotos?</summary><p>Depois da sessão, você recebe as orientações para acessar a galeria de seleção e escolher, com calma, as fotografias incluídas no pacote contratado.</p></details>
-        <details><summary>Como faço para entrar no grupo?</summary><p>Basta tocar em <b>Quero entrar no Grupo VIP</b>. Lá você recebe os valores, as condições e os detalhes da campanha.</p></details>
+        <details><summary>Posso comprar fotografias adicionais?</summary><p>Sim. Cada fotografia digital adicional custa R$ 14,90. Para adicionar fotos impressas, é só consultar o valor pelo WhatsApp.</p></details>
+        <details><summary>Como faço para reservar?</summary><p>Basta me chamar pelo WhatsApp. Conversamos sobre o pacote e as datas disponíveis, e a reserva é confirmada com um sinal de 30% do valor do pacote escolhido.</p></details>
+        <details><summary>Posso reagendar minha sessão?</summary><p>Sim. Os pedidos de reagendamento devem ser feitos com antecedência mínima de 48 horas, sujeitos à disponibilidade de agenda.</p></details>
         <details><summary>Vocês fazem make e cabelo?</summary><p>Não trabalhamos com make e cabelo. Orientamos que a família venha pronta para o ensaio.</p></details>
         <details><summary>Quando receberei minhas fotografias?</summary><p>As fotos digitais são entregues em até 5 dias e as fotos impressas em até 10 dias.</p></details>
       </div>
@@ -777,7 +763,7 @@ main{position:relative}
         <div class="orn"><span>✦</span></div>
         <h2>O tempo passa. As crianças crescem. <em>As memórias permanecem.</em></h2>
         <p>Que este Natal seja vivido com amor, fé e família. E que essa história possa ser lembrada por meio de fotografias que vocês guardarão com carinho.</p>
-        <a class="btn wa" href="https://chat.whatsapp.com/DgpMbaPRsQ2FkxfL30hxgE">Quero entrar no Grupo VIP</a>
+        <a class="btn wa" data-msg="Olá, Vitória! Quero reservar minha sessão de Natal 2026. 🎄" href="https://wa.me/555196505837">Reservar minha sessão de Natal</a>
       </div>
     </div>
   </section>
@@ -790,7 +776,7 @@ main{position:relative}
     <p class="tag">Campanha de Natal 2026 · Campo Bom/RS</p>
     <div class="links">
       <a href="https://instagram.com/vitoriaplasido">Instagram</a>
-      <a class="wa" href="https://chat.whatsapp.com/DgpMbaPRsQ2FkxfL30hxgE">Grupo VIP</a>
+      <a class="wa" data-msg="Olá, Vitória! Conheci a campanha de Natal 2026 e gostaria de saber mais sobre as sessões e as datas disponíveis." href="https://wa.me/555196505837">WhatsApp</a>
     </div>
     <p class="copy">© Vitória Plasido Fotografia. Todos os direitos reservados.</p>
   </div>
@@ -814,8 +800,8 @@ main{position:relative}
     <button type="button" class="gi"><img src="img/tradC.jpg" alt="Menino lendo sentado com livro aberto, cenário Tradição" loading="lazy"></button>
   </div>
   <div class="gal-cta">
-    <p>Gostou? Entre no Grupo VIP e receba os detalhes da campanha.</p>
-    <a class="btn wa" href="https://chat.whatsapp.com/DgpMbaPRsQ2FkxfL30hxgE">Quero entrar no Grupo VIP</a>
+    <p>Gostou? Reserve a sua sessão de Natal.</p>
+    <a class="btn wa" data-msg="Olá, Vitória! Vi a galeria de fotos de Natal e quero reservar minha sessão. 🎄" href="https://wa.me/555196505837">Quero reservar minha sessão</a>
   </div>
   <div class="lb" id="lightbox" hidden>
     <button type="button" class="lb-x" id="lb-close" aria-label="Fechar foto">×</button>
@@ -826,9 +812,9 @@ main{position:relative}
   </div>
 </div>
 
-<a class="fab wa" href="https://chat.whatsapp.com/DgpMbaPRsQ2FkxfL30hxgE" aria-label="Falar com a Vitória pelo WhatsApp">
+<a class="fab wa" data-msg="Olá, Vitória! Conheci a campanha de Natal 2026 e gostaria de saber mais sobre as sessões e as datas disponíveis." href="https://wa.me/555196505837" aria-label="Falar com a Vitória pelo WhatsApp">
   <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .2-1.2c-.1-.1-.3-.2-.5-.3Z"/></svg>
-  <span>Quero entrar no Grupo VIP</span>
+  <span>Reservar pelo WhatsApp</span>
 </a>
 
 <script>
