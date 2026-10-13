@@ -350,6 +350,12 @@ body.locked{overflow:hidden}
 .switch button[aria-selected="true"]{color:#fff}
 .switch .pill{position:absolute;top:5px;bottom:5px;left:5px;width:calc(50% - 7px);border-radius:999px;background:var(--moss);transition:transform .5s cubic-bezier(.6,0,.2,1),background-color .6s}
 .detail[data-scene="tradicao"] .switch .pill{transform:translateX(calc(100% + 4px));background:#9E1B1F}
+.switch{animation:swNudge 1.6s 1.2s ease-in-out 2}
+@keyframes swNudge{0%,100%{transform:scale(1)}50%{transform:scale(1.035)}}
+.switch-hint{margin:12px 0 0;font-family:var(--sans);font-size:11px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--soft);opacity:.8;display:flex;align-items:center;justify-content:center;gap:8px}
+.switch-hint span{display:inline-block;font-size:14px;animation:hintNudge 2.6s ease-in-out infinite}
+@keyframes hintNudge{0%,100%{transform:translateX(0)}50%{transform:translateX(5px)}}
+.switch-hint.gone{display:none}
 .stage{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(28px,5vw,72px);align-items:center;margin-top:36px}
 .stage-photos{position:relative;aspect-ratio:5/4;max-width:100%}
 .stage-photos .set{position:absolute;inset:0;display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);grid-template-rows:repeat(2,minmax(0,1fr));gap:12px;overflow:hidden;transition:opacity .8s ease,transform .8s ease}
@@ -393,7 +399,7 @@ body.locked{overflow:hidden}
 @media (max-width:560px){.fab span{display:none}.fab{padding:15px}}
 
 /* final: árvore de luzes */
-.final-photo{position:relative;overflow:hidden}
+.final-photo{position:relative;overflow:hidden;background:#E9DFD0;min-height:360px}
 .final-photo img{transition:transform 1.2s}
 .final:hover .final-photo img{transform:scale(1.04)}
 
@@ -524,7 +530,7 @@ main{position:relative}
   <section id="historia">
     <div class="wrap about-grid about">
       <figure class="about-photo">
-        <div class="photo-ph" role="img" aria-label="Espaço para a foto da Vitória"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><rect x="6" y="13" width="36" height="26" rx="4"/><path d="M17 13l3-5h8l3 5"/><circle cx="24" cy="26" r="7"/></svg><span>Foto da Vitória</span></div>
+        <img src="img/vitoria.jpg" alt="Vitória Plasido com a câmera fotográfica" loading="lazy" style="object-position:50% 30%">
         <figcaption>Vitória Plasido, mãe do Levi e fotógrafa.</figcaption>
       </figure>
       <div>
@@ -542,8 +548,8 @@ main{position:relative}
   <!-- faixa de fotos -->
   <div class="strip" aria-label="Fotos do cenário de Natal">
     <div class="strip-track">
-      <img src="img/g2.jpg" alt=""><img src="img/trad1.jpg" alt=""><img src="img/lanterna.jpg" alt=""><img src="img/rena.jpg" alt=""><img src="img/g4.jpg" alt=""><img src="img/trad3.jpg" alt=""><img src="img/g1.jpg" alt=""><img src="img/trad2.jpg" alt="">
-      <img src="img/g2.jpg" alt=""><img src="img/trad1.jpg" alt=""><img src="img/lanterna.jpg" alt=""><img src="img/rena.jpg" alt=""><img src="img/g4.jpg" alt=""><img src="img/trad3.jpg" alt=""><img src="img/g1.jpg" alt=""><img src="img/trad2.jpg" alt="">
+      <img src="img/g2.jpg" alt=""><img src="img/tradA.jpg" alt=""><img src="img/lanterna.jpg" alt=""><img src="img/g4.jpg" alt=""><img src="img/tradC.jpg" alt=""><img src="img/tradB.jpg" alt=""><img src="img/rena.jpg" alt="">
+      <img src="img/g2.jpg" alt=""><img src="img/tradA.jpg" alt=""><img src="img/lanterna.jpg" alt=""><img src="img/g4.jpg" alt=""><img src="img/tradC.jpg" alt=""><img src="img/tradB.jpg" alt=""><img src="img/rena.jpg" alt="">
     </div>
   </div>
 
@@ -554,7 +560,7 @@ main{position:relative}
         <div class="detail-photos">
           <img class="wide" src="img/g2.jpg" alt="Menino rindo ao lado da árvore de Natal com luzes suaves" loading="lazy">
           <img src="img/lanterna.jpg" alt="Menino abrindo uma lanterna de Natal iluminada" loading="lazy">
-          <img src="img/rena.jpg" alt="Rena de pelúcia sobre o tapete branco do cenário" loading="lazy">
+          <img src="img/tradA.jpg" alt="Menino com livro vermelho no cenário de Natal" loading="lazy">
         </div>
         <div>
           <div class="eyebrow">O cenário e a experiência</div>
@@ -581,6 +587,7 @@ main{position:relative}
           <button type="button" id="tab-encanto" role="tab" aria-selected="true" data-go="encanto">Encanto</button>
           <button type="button" id="tab-tradicao" role="tab" aria-selected="false" data-go="tradicao">Tradição</button>
         </div>
+        <p class="switch-hint"><span aria-hidden="true">⇆</span> Toque no botão acima para trocar de cenário</p>
       </div>
       <div class="stage">
         <div class="stage-photos">
@@ -590,9 +597,9 @@ main{position:relative}
             <img src="img/lanterna.jpg" alt="Menino com lanterna de Natal no cenário Encanto" loading="lazy" style="object-position:50% 40%">
           </div>
           <div class="set off" data-set="tradicao">
-            <img src="img/trad1.jpg" alt="Cenário Tradição: menino lendo diante da árvore vermelha" loading="lazy">
+            <img src="img/tradC.jpg" alt="Cenário Tradição: menino lendo sentado com livro aberto" loading="lazy">
             <img src="img/rena.jpg" alt="Rena de pelúcia com almofadas vermelhas" loading="lazy" style="object-position:50% 72%">
-            <img src="img/trad2.jpg" alt="Menino rindo sobre um livro aberto no cenário Tradição" loading="lazy">
+            <img src="img/tradB.jpg" alt="Menino deitado sorrindo com livro aberto no cenário Tradição" loading="lazy">
           </div>
         </div>
         <div class="stage-info">
@@ -620,7 +627,7 @@ main{position:relative}
   <section class="more" id="galeria">
     <div class="wrap more-box rv">
       <div class="more-thumbs" aria-hidden="true">
-        <img src="img/g2.jpg" alt=""><img src="img/trad1.jpg" alt=""><img src="img/lanterna.jpg" alt="">
+        <img src="img/g2.jpg" alt=""><img src="img/tradA.jpg" alt=""><img src="img/lanterna.jpg" alt="">
       </div>
       <div class="more-text">
         <div class="eyebrow">Galeria</div>
@@ -744,7 +751,7 @@ main{position:relative}
   <!-- 11. final -->
   <section class="final" id="contato">
     <div class="final-inner">
-      <div class="final-photo"><img src="img/trad2.jpg" alt="Menino rindo deitado sobre um livro aberto, com a árvore de Natal ao fundo" loading="lazy" style="object-position:50% 40%"></div>
+      <div class="final-photo"><img src="img/g4.jpg" alt="Menino deitado sorrindo, com a árvore de Natal ao fundo" loading="lazy"></div>
       <div class="final-text">
         <div class="orn"><span>✦</span></div>
         <h2>O tempo passa. As crianças crescem. <em>As memórias permanecem.</em></h2>
@@ -775,15 +782,15 @@ main{position:relative}
   </div>
   <div class="gal-grid">
     <button type="button" class="gi"><img src="img/foto1.jpg" alt="Menino sorrindo com o livrinho, cenário Encanto" loading="lazy"></button>
-    <button type="button" class="gi"><img src="img/trad1.jpg" alt="Menino lendo diante da árvore vermelha, cenário Tradição" loading="lazy"></button>
     <button type="button" class="gi"><img src="img/g2.jpg" alt="Menino rindo ao lado da árvore, cenário Encanto" loading="lazy"></button>
     <button type="button" class="gi"><img src="img/rena.jpg" alt="Rena de pelúcia com almofadas vermelhas, cenário Tradição" loading="lazy"></button>
     <button type="button" class="gi"><img src="img/lanterna.jpg" alt="Menino com lanterna de Natal, cenário Encanto" loading="lazy"></button>
-    <button type="button" class="gi"><img src="img/trad2.jpg" alt="Menino rindo sobre um livro aberto, cenário Tradição" loading="lazy"></button>
     <button type="button" class="gi"><img src="img/g4.jpg" alt="Menino deitado sorrindo, cenário Encanto" loading="lazy"></button>
-    <button type="button" class="gi"><img src="img/trad3.jpg" alt="Menino espiando por trás de um livro, cenário Tradição" loading="lazy"></button>
     <button type="button" class="gi"><img src="img/g1.jpg" alt="Menino sorrindo com o livrinho nas mãos, cenário Encanto" loading="lazy"></button>
     <button type="button" class="gi"><img src="img/g3.jpg" alt="Menino deitado folheando o livrinho, cenário Encanto" loading="lazy"></button>
+    <button type="button" class="gi"><img src="img/tradA.jpg" alt="Menino espiando por trás de um livro vermelho, cenário Tradição" loading="lazy"></button>
+    <button type="button" class="gi"><img src="img/tradB.jpg" alt="Menino deitado sorrindo com livro aberto, cenário Tradição" loading="lazy"></button>
+    <button type="button" class="gi"><img src="img/tradC.jpg" alt="Menino lendo sentado com livro aberto, cenário Tradição" loading="lazy"></button>
   </div>
   <div class="gal-cta">
     <p>Gostou? Reserve a sua sessão de Natal.</p>
@@ -863,6 +870,7 @@ main{position:relative}
     sec.dataset.scene=name;
     sec.querySelectorAll('[data-set]').forEach(function(el){el.classList.toggle('off',el.dataset.set!==name)});
     sec.querySelectorAll('.switch button').forEach(function(b){b.setAttribute('aria-selected',String(b.dataset.go===name))});
+    var hint=sec.querySelector('.switch-hint'); if(hint) hint.classList.add('gone');
   }
   sec.querySelectorAll('.switch button').forEach(function(b){b.addEventListener('click',function(){go(b.dataset.go)})});
 
