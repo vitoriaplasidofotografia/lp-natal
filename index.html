@@ -1034,4 +1034,21 @@ main{position:relative}
 })();
 </script>
 
+<script>
+/* Meta: ViewContent quando a pessoa rola a página para baixo (dispara uma vez) */
+(function(){
+  var rolou = false;
+  window.addEventListener('scroll', function(){
+    if(rolou || window.scrollY < 300 || !window.fbq) return;
+    rolou = true;
+    fbq('track', 'ViewContent', {content_name: 'scroll_landing'});
+  }, {passive: true});
+  /* Meta: Contact quando clica em qualquer botão do WhatsApp */
+  document.addEventListener('click', function(e){
+    var a = e.target.closest('a[href*="wa.me"], a[href*="whatsapp.com"]');
+    if(!a || !window.fbq) return;
+    fbq('track', 'Contact');
+  });
+})();
+</script>
 </body></html>
