@@ -899,7 +899,6 @@ main{position:relative}
     sec.dataset.scene=name;
     sec.querySelectorAll('[data-set]').forEach(function(el){el.classList.toggle('off',el.dataset.set!==name)});
     sec.querySelectorAll('.switch button').forEach(function(b){b.setAttribute('aria-selected',String(b.dataset.go===name))});
-    var hint=sec.querySelector('.switch-hint'); if(hint) hint.classList.add('gone');
   }
   sec.querySelectorAll('.switch button').forEach(function(b){b.addEventListener('click',function(){go(b.dataset.go)})});
 
